@@ -20,5 +20,4 @@ var fibonacci = (function() {
   }
 
   return f;
-})();}
-}
+})();
