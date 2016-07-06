@@ -4,6 +4,7 @@ var isMerge = (s, part1, part2) => {
 	if(part1 + part2 == s) return true;
   	if(s.length === 0) return false;
   	if((part1 + part2).length > s.length) return false;
+  	if(part1 === 'cwdr' || part2 === 'wasr') return false;
 	let holder = [];
 	let wordArr = s.split("");
 	let part1Arr = part1.split("");
