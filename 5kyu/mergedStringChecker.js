@@ -7,19 +7,15 @@ var isMerge = (s, part1, part2) => {
 	let part1Arr = part1.split("");
 	let part2Arr = part2.split("");
 	for(var i = 0; i < wordArr.length; i++) {
-		let letter1 = wordArr.indexOf(part1Arr[i])
-		let letter2 = wordArr.indexOf(part2Arr[i])
-		console.log(letter1, wordArr[i])
-		if(letter1 !== -1) holder[letter1] = wordArr[letter1]
-		if(letter2 !== -1) holder[letter2] = wordArr[letter2]
+		let letter1 = part1Arr.indexOf(wordArr[i])
+		let letter2 = part2Arr.indexOf(wordArr[i])
+		if(letter1 !== -1) holder[i] = wordArr[i]
+		if(letter2 !== -1) holder[i] = wordArr[i]
 	}
-	console.log(holder.join(""))
 	return holder.join("") === s ? true: false;
 }
 
-
-
-
+isMerge("Making progress", "Mak pross", "inggre")
 
 
 // var isMerge = (s, part1, part2) => {
