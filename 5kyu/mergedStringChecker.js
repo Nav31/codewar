@@ -14,25 +14,3 @@ var isMerge = (s, part1, part2) => {
 	}
 	return holder.join("") === s ? true: false;
 }
-
-
-
-
-
-
-
-
-
-	for(var i = 0; i < part1Arr.length; i++) {
-		let something = wordArr.indexOf(part1Arr[i]);
-		if(something > -1) holder[something] = part1Arr[i]
-		let cow = 0
-		for(var j = cow; j < part2Arr.length; j++) {
-			let sec = wordArr.indexOf(part2Arr[j])
-			// console.log(sec, part)
-			if(sec > -1) {
-				holder[sec] = part2Arr[j];
-				break
-			}
-		}
-	}
