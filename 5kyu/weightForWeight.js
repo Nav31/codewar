@@ -9,11 +9,19 @@ var orderWeight = string => {
 	}
 	for(let weight in holder) {anwsArr.push([weight, holder[weight]])}
 	anwsArr = anwsArr.sort((a,b) => a[1] - b[1]);
-	for(let  i = 0; i < anwsArr.length - 1; i++) {
-		if(anwsArr[i][1] === anwsArr[i+1][1]) {
-			let someArr = [anwsArr[i][0], anwsArr[i+1][0]].sort()
+	for(let i = 0; i < anwsArr.length - 1; i++) {
+		if(parseInt(anwsArr[i][1]) === parseInt(anwsArr[i+1][1])) { 
+			let someArr = [parseInt(anwsArr[i][0]), parseInt(anwsArr[i+1][0])].sort()
 			anwsArr[i][0] = someArr[0];
 			anwsArr[i+1][0] = someArr[1]
+		}
+	}
+	for(let  i = 0; i < anwsArr.length - 2; i++) {
+		if(parseInt(anwsArr[i][1]) === parseInt(anwsArr[i+2][1])) {
+			let someArr = [parseInt(anwsArr[i][0]), parseInt(anwsArr[i+1][0]), parseInt(anwsArr[i+2][0])].sort()
+			anwsArr[i][0] = someArr[0];
+			anwsArr[i+1][0] = someArr[1]
+			anwsArr[i+2][0] = someArr[2]
 		}
 	}
 	anwsArr.forEach(ele => str += ele[0] + " ");
