@@ -3,20 +3,58 @@
 // 1 if an interesting number occurs within the next two miles, 
 // 0 if the number is not interesting.
 
-var isInteresting = (number, awesomePhrases) => {
-	const numArr = number.toString().split("");
-	for(let i = 0; i < numArr.length; i++) {		// check if all numbers are the same
-		if(numArr[0] !== numArr[i]) return false;
+function sameNums (arr) {
+	for(let i = 0; i < arr.length; i++) {		// check if all numbers are the same
+		if(arr[0] !== arr[i]) return false;
 	}
-	for(let i = 1; i < numArr.length; i++) {		// check if all numbers after 1st are 0
-		if(numArr[i] !== 0) return false;
+}
+function zeros (arr) {
+	for(let i = 1; i < arr.length; i++) {		// check if all numbers after 1st are 0
+		if(arr[i] !== 0) return false;
 	}
-	let increment = numArr[1] - numArr[0];
-	for(let i = numArr.length - 1; i > 0; i--) {	// check increment is same
-		if(numArr[i] - increment !== numArr[i - 1]) return false;
+}
+function increment (arr) {
+	let increm = parseInt(arr[1]) - parseInt(arr[0]);
+	for(let i = arr.length - 1; i > 0; i--) {	// check increm is same
+		if(parseInt(arr[i]) - increm !== parseInt(arr[i - 1])) return false;
 	}
-	let decrement = numArr[numArr.length - 2] numArr[numArr.length - 1];
-	for(let i = 0; i < numArr.length - 1; i++) {
-		if(numArr[i] - decrement !== numArr[i + 1]) return false;	// check decrement is same
+}
+function decrement (arr) {
+	let decrem = parseInt(arr[arr.length - 2]) - parseInt(arr[arr.length - 1]);
+	for(let i = 0; i < arr.length - 1; i++) {
+		if(parseInt(arr[i]) - decrem !== parseInt(arr[i + 1])) return false;	// check decrement is same
 	} 
 }
+function palindrome (num) {
+	let arr = num.toString().split("");
+	if(arr.length >= 2) {	// num can only be palind. if length is >= 2;
+		num === parseInt(arr.reverse().join(""));
+	} else return false;
+}
+function inArray (arr, num) {
+	for(let i = 0; i < arr.length; i++) {
+		if (parseInt(arr[i]) === num) return true
+	}
+	return false;
+}
+function isInteresting (number, awesomePhrases) {
+	let numArr = number.toString().split("");
+	let output = 0;
+	if(sameNums(numArr)) output = 2;
+	if(zeros(numArr)) output = 2;
+	if(increment(numArr)) output = 2;
+	if(decrement(numArr)) output = 2;
+	if(palindrome(number)) output = 2;
+	if(inArray(awesomePhrases, number)) output = 2;
+	const numPlus1 = number + 1;
+	const plus1Arr = numPlus1.toString().split("");
+	if(sameNums(plus1Arr)) output = 1;
+	if(zeros(plus1Arr)) output = 1;
+	if(increment(plus1Arr)) output = 1;
+	if(decrement(plus1Arr)) output = 1;
+	if(palindrome(numPlus1)) output = 1;
+	if(inArray(awesomePhrases, numPlus1)) output = 1;
+	return output;
+}
+
+isInteresting(3, [1337, 256])
