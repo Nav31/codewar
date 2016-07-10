@@ -4,35 +4,44 @@
 // 0 if the number is not interesting.
 
 function sameNums (arr) {
-	for(let i = 0; i < arr.length; i++) {		// check if all numbers are the same
-		if(arr[0] !== arr[i]) return false;
-	}
-	return true;
+	if (arr.length >= 3) {
+		for(let i = 0; i < arr.length; i++) {		// check if all numbers are the same
+			if(arr[0] !== arr[i]) return false;
+		}
+		return true;	
+	} else return false;
 }
 function zeros (arr) {  	// check if all numbers after 1st are 0
-	for(let i = 1; i <= arr.length - 1; i++) {	
-		if(parseInt(arr[i]) !== 0) return false;
-	}
-	return true;
+	if(arr.length >= 3) {
+		for(let i = 1; i <= arr.length - 1; i++) {	
+			if(parseInt(arr[i]) !== 0) return false;
+		}
+		return true;
+	} else return false;
+
 }
 function increment (arr) {
-	let increm = parseInt(arr[1]) - parseInt(arr[0]);
-	for(let i = arr.length - 1; i > 0; i--) {	// check increm is same
-		if(parseInt(arr[i]) - increm !== parseInt(arr[i - 1])) return false;
-	}
-	return true;
+	if(parseInt(arr[arr.length - 1]) === 0) arr.splice(-1,1)
+	if(arr.length >= 3) {
+		let increm = parseInt(arr[1]) - parseInt(arr[0]);
+		for(let i = arr.length - 1; i > 0; i--) {	// check increm is same
+			if(parseInt(arr[i]) - increm !== parseInt(arr[i - 1])) return false;
+		}
+		return true;	
+	} else return false;
 }
 function decrement (arr) {
-	let decrem = parseInt(arr[arr.length - 2]) - parseInt(arr[arr.length - 1]);
-	for(let i = 0; i < arr.length - 1; i++) {
-		if(parseInt(arr[i]) - decrem !== parseInt(arr[i + 1])) return false;	// check decrement is same
-	} 
-	return true;
+	if(arr.length >= 3) {
+		let decrem = parseInt(arr[arr.length - 2]) - parseInt(arr[arr.length - 1]);
+		for(let i = 0; i < arr.length - 1; i++) {
+			if(parseInt(arr[i]) - decrem !== parseInt(arr[i + 1])) return false;	// check decrement is same
+		} 
+		return true;	
+	} else return false;
 }
 function palindrome (num) {
 	let arr = num.toString().split("");
-	console.log(arr)
-	if(arr.length >= 2) {	// num can only be palind. if length is >= 2;
+	if(arr.length >= 3) {	// num can only be palind. if length is >= 2;
 		return num === parseInt(arr.reverse().join(""));
 	} else return false;
 }
