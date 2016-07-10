@@ -9,9 +9,9 @@ function sameNums (arr) {
 	}
 	return true;
 }
-function zeros (arr) {
-	for(let i = 1; i < arr.length; i++) {		// check if all numbers after 1st are 0
-		if(arr[i] !== 0) return false;
+function zeros (arr) {  	// check if all numbers after 1st are 0
+	for(let i = 1; i <= arr.length - 1; i++) {	
+		if(parseInt(arr[i]) !== 0) return false;
 	}
 	return true;
 }
@@ -31,6 +31,7 @@ function decrement (arr) {
 }
 function palindrome (num) {
 	let arr = num.toString().split("");
+	console.log(arr)
 	if(arr.length >= 2) {	// num can only be palind. if length is >= 2;
 		return num === parseInt(arr.reverse().join(""));
 	} else return false;
@@ -52,12 +53,15 @@ function isInteresting (number, awesomePhrases) {
 	if(inArray(awesomePhrases, number)) output = 2;
 	const numPlus1 = number + 1;
 	const plus1Arr = numPlus1.toString().split("");
-	if(sameNums(plus1Arr)) output = 1;
-	if(zeros(plus1Arr)) output = 1;
-	if(increment(plus1Arr)) output = 1;
-	if(decrement(plus1Arr)) output = 1;
-	if(palindrome(numPlus1)) output = 1;
-	if(inArray(awesomePhrases, numPlus1)) output = 1;
+	if(output !== 2) {
+		if(sameNums(plus1Arr)) output = 1;
+		if(zeros(plus1Arr)) output = 1;
+		if(increment(plus1Arr)) output = 1;
+		if(decrement(plus1Arr)) output = 1;
+		if(palindrome(numPlus1)) output = 1;
+		if(inArray(awesomePhrases, numPlus1)) output = 1;
+	}
+
 	return output;
 }
 
