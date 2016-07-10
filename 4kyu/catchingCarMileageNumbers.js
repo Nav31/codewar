@@ -7,28 +7,32 @@ function sameNums (arr) {
 	for(let i = 0; i < arr.length; i++) {		// check if all numbers are the same
 		if(arr[0] !== arr[i]) return false;
 	}
+	return true;
 }
 function zeros (arr) {
 	for(let i = 1; i < arr.length; i++) {		// check if all numbers after 1st are 0
 		if(arr[i] !== 0) return false;
 	}
+	return true;
 }
 function increment (arr) {
 	let increm = parseInt(arr[1]) - parseInt(arr[0]);
 	for(let i = arr.length - 1; i > 0; i--) {	// check increm is same
 		if(parseInt(arr[i]) - increm !== parseInt(arr[i - 1])) return false;
 	}
+	return true;
 }
 function decrement (arr) {
 	let decrem = parseInt(arr[arr.length - 2]) - parseInt(arr[arr.length - 1]);
 	for(let i = 0; i < arr.length - 1; i++) {
 		if(parseInt(arr[i]) - decrem !== parseInt(arr[i + 1])) return false;	// check decrement is same
 	} 
+	return true;
 }
 function palindrome (num) {
 	let arr = num.toString().split("");
 	if(arr.length >= 2) {	// num can only be palind. if length is >= 2;
-		num === parseInt(arr.reverse().join(""));
+		return num === parseInt(arr.reverse().join(""));
 	} else return false;
 }
 function inArray (arr, num) {
@@ -57,4 +61,4 @@ function isInteresting (number, awesomePhrases) {
 	return output;
 }
 
-isInteresting(3, [1337, 256])
+// isInteresting(3, [1337, 256])
