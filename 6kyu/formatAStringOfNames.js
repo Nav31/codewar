@@ -3,9 +3,10 @@
 
 var list = arr => {
 	let holder = [];
-	for(let i = 0; i < arr.length; i++) {
-		holder.push(arr[i].name)
-	}
+	// for(let i = 0; i < arr.length; i++) {
+	// 	holder.push(arr[i].name)
+	// }
+	arr.forEach(ele => holder.push(ele.name));
 	if(holder.length === 0) return "";
 	let str = "";
 	if(holder.length >= 3){
