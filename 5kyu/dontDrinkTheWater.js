@@ -1,5 +1,3 @@
-// https://www.codewars.com/kata/dont-drink-the-water/train/javascript
-// must make the glasses equal length;
 var objToArr = (letter, obj) => {
 	let temp = [];
 	for(let key in obj) {
@@ -23,10 +21,9 @@ var separateLiquids = arr => {
 	}
 	anwsArr.push(objToArr('O', holder), objToArr('A', holder), objToArr('W', holder), objToArr('H', holder));
 	if(arr.length === 1) {
-		let newArr = [];
-		for(let i = 0; i < anwsArr.length; i++) {
-			newArr.push(anwsArr[i][0])
-		}
+		let newArr = anwsArr.reduce((first, next) => {
+			return first.concat(next);
+		}, [])
 		return [newArr];
 	}
 	anws = anwsArr.filter(ele => ele.length > 0);
