@@ -1,16 +1,13 @@
-var deleteNth = (arr, lim) => {
-	let holder = {}, anwsArr = [];
-	for(let i = 0; i < arr.length; i++) {
-		if(arr[i] in holder) holder[arr[i]]++
-		else holder[arr[i]] = 1;
-	}
-	for(let key in holder) {
-		if(holder[key] > lim) holder[key] = holder[key] - lim;
-		while(holder[key] > 0) {
-			anwsArr.push(key);
-			holder[key]--;
-		}
-	}
-	anwsArr = anwsArr.map(ele => parseInt(ele));
+// deleteNth ([1,1,1,1],2) // return [1,1]
+// deleteNth ([20,37,20,21],1) // return [20,37,21]
 
+
+var deleteNth = (arr, lim) => {
+    if (lim == 0) return [];
+    let obj = {};
+    return arr.filter(num => {
+        obj[num] = (obj[num] || 0) + 1;
+        let something = obj[num];
+        return something <= lim;
+    });
 }
