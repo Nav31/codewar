@@ -18,18 +18,19 @@ function zeros (arr) {  	// check if all numbers after 1st are 0
 		}
 		return true;
 	} else return false;
-
 }
 function increment (arr) {
-	if(parseInt(arr[arr.length - 1]) === 0) arr.splice(-1,1)
+	let bool = false;
 	if(arr.length >= 3) {
-		let increm = parseInt(arr[1]) - parseInt(arr[0]);
-		for(let i = arr.length - 1; i > 0; i--) {	// check increm is same
-			if(parseInt(arr[i]) - increm !== parseInt(arr[i - 1])) return false;
+		if(parseInt(arr[arr.length - 1]) === 0) arr.splice(-1,1);
+		let increm = parseInt(arr[1]) - parseInt(arr[0])
+		for(let i = 1; i < arr.length - 1; i++) {
+			if(parseInt(arr[i+1]) - parseInt(arr[i]) === increm ) bool = true
+			else return false;
 		}
-		return true;	
-	} else return false;
-}
+	} else bool = false
+	return bool;
+}	
 function decrement (arr) {
 	if(arr.length >= 3) {
 		let decrem = parseInt(arr[arr.length - 2]) - parseInt(arr[arr.length - 1]);
