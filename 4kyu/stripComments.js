@@ -8,10 +8,7 @@ var solution = (input, markers) => {
 			if(idx > -1) splitHolder[i].splice(idx-1, splitHolder[i].length);
 		}
 	}
-	for(let i = 0; i < splitHolder.length; i++) {
-		let joinedStr = splitHolder[i].join("");
-		str += joinedStr + '\n';
-	}
+	for(let i = 0; i < splitHolder.length; i++) str += splitHolder[i].join("") + '\n';
 	return str.split("").slice(0, str.length-1).join("");
 }
 
