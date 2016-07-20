@@ -12,8 +12,8 @@ var solution = (input, markers) => {
 		let joinedStr = splitHolder[i].join("");
 		str += joinedStr + '\n';
 	}
-	str = str.split("").slice(0, str.length-1);
-	return str.join("");
+	return str.split("").slice(0, str.length-1).join("");
+	// return str.join("");
 }
 
 solution("apples, pears # and bananas\ngrapes\nbananas !apples", ["#", "!"]);
