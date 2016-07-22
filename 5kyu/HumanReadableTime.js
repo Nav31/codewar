@@ -1,9 +1,7 @@
 function humanReadable(seconds) {
 	let padMe = num => {
 		let holder = "";
-		if(num.toString().length < 2) holder += "0" + num.toString();
-		else return num;
-		return holder;
+		return num.toString().length < 2 ? holder += '0' + num.toString() : num;
 	}
 	let newseconds = (seconds % 60);
 	let minutes = Math.floor((seconds / 60) % 60);
