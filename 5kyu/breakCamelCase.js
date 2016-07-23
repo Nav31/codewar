@@ -8,4 +8,4 @@ const solution = str => {
 	return arr.join("");
 }
 // or
-const solution = str => str.replce(/[A-Z]/g, '$1');
+const solution = str => str.replce(/[A-Z]/g, ' $1');
