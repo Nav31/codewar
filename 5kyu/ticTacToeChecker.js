@@ -1,4 +1,4 @@
-var isSolved = (arr) => {
+var isSolved = arr => {
 	let allSame = someArr => {
 		for(let i = 0, j = i+1; i < someArr.length; i++) {
 			if(someArr[i] !== someArr[j]) return false;
