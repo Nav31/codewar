@@ -1,15 +1,15 @@
-
+// https://www.codewars.com/kata/sum-consecutives/train/javascript
 
 const sumConsecutives = arr => {
 	let holder = [], count = 0;
-	for(let i = 0, j=i+1; i < arr.length; i++) {
-		if(arr[i] === arr[j]) count += arr[i]
+	for(let i = 0; i < arr.length; i++) {
+		if(arr[i] === arr[i+1]) count += arr[i];
 		else {
 			if(count > 0) {
 				holder.push(count)
 				count = 0;
 			}
-			holder.push(arr[i])
+			holder.push(arr[i]);
 		}
 	}
 	return holder;
