@@ -5,9 +5,13 @@ const sumConsecutives = arr => {
 	for(let i = 0, j=i+1; i < arr.length; i++) {
 		if(arr[i] === arr[j]) count += arr[i]
 		else {
+			if(count > 0) {
+				holder.push(count)
+				count = 0;
+			}
 			holder.push(arr[i])
-			if(count > 0) holder.push(count)
 		}
 	}
-	return count;
+	return holder;
 }
+sumConsecutives([1,4,4,4,0,4,3,3,1])
