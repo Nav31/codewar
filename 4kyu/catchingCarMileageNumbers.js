@@ -1,7 +1,3 @@
-// https://www.codewars.com/kata/catching-car-mileage-numbers/train/javascript
-// 2 if the number is "interesting" (see below)
-// 1 if an interesting number occurs within the next two miles
-// 0 if the number is not interesting
 const zeros = arr => {
 	for(let i = 1; i < arr.length; i++) if(arr[i] !== 0) return false;
 	return true;
@@ -30,6 +26,13 @@ const isInteresting = (num, awesomePhrases) => {
 	else if(allSame(numArr)) return 2
 	else if(incrementing(numArr)) return 2
 	else if(decrementing(numArr)) return 2
-	else if(isPalindrome(numArr)) return 2
-	else if(isAPhrase(num, numArr)) return 2
+	else if(isPalindrome(num)) return 2
+	else if(isAPhrase(num, awesomePhrases)) return 2
+	else if(zeros(numPlus2)) return 1
+	else if(allSame(numPlus2)) return 2
+	else if(incrementing(numPlus2)) return 2
+	else if(decrementing(numPlus2)) return 2
+	else if(isPalindrome(parseInt(numPlus2.join("")))) return 2
+	else if(isAPhrase(num, awesomePhrases)) return 2
+	else return 0;
 }
