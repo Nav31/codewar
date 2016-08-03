@@ -1,7 +1,7 @@
 const sumConsecutives = arr => {
 	let holder = [], count = 0;
 	for(let i = 0; i < arr.length; i++) {
-		if(arr[i] === arr[i+1]) count += arr[i]
+		if(arr[i] === arr[i+1]) count += arr[i];
 		else {
 			if(count > -10000) {
 				count += arr[i];
