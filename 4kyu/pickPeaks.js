@@ -1,22 +1,25 @@
-// http://www.codewars.com/kata/pick-peaks/train/javascript
 const allSame = arr => arr.filter((elem, pos) => arr.indexOf(elem) === pos).length === 1;
+const isPlateu = arr => {
+	let first = arr.shift(), last = arr.pop();
+	if(allSame(arr)) {
+		if(first < arr[0] && arr[0] > last) return true
+	}
+	return false;
+}
 const pickPeaks = arr => {
-	let holder = {"pos": [], "peaks": []};
-	if(arr.length === 0) return holder;
-	// check for plateau by using all same
-	let midArr = arr.slice(1, arr.length-1);
-	if(allSame(midArr)) {
-		if(arr[0] < arr[1] && arr[1] > arr[0]) {
-			holder["pos"].push(1)
-			holder["peaks"].push(arr[1])
+	let obj = {"pos": [], "peaks": []};
+	for(let i = 0; i < arr.length - 1; i++) {
+		newArr = arr.slice(i)
+		if(isPlateu(newArr)) {
+			obj["pos"].push(i);
+			obj["peaks"].push(newArr[i]);
 		}
-		return holder;
 	}
 	for(let i = 1; i < arr.length - 1; i++) {
-		if(arr[i-1] < arr[i] && arr[i] >= arr[i+1]) {
-			holder["pos"].push(i);
-			holder["peaks"].push(arr[i]);
+		if(arr[i-1] < arr[i] && arr[i] > arr[i+1]) {
+			obj["pos"].push(i);
+			obj["peaks"].push(arr[i]);
 		}
 	}
-	return holder;
+	return obj;
 }
