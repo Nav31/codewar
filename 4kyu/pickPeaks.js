@@ -8,17 +8,17 @@ const isPlateu = arr => {
 }
 const pickPeaks = arr => {
 	let obj = {"pos": [], "peaks": []};
-	for(let i = 0; i < arr.length - 1; i++) {
-		newArr = arr.slice(i)
-		if(isPlateu(newArr)) {
-			obj["pos"].push(i);
-			obj["peaks"].push(newArr[i]);
-		}
-	}
 	for(let i = 1; i < arr.length - 1; i++) {
 		if(arr[i-1] < arr[i] && arr[i] > arr[i+1]) {
 			obj["pos"].push(i);
 			obj["peaks"].push(arr[i]);
+		}
+	}
+	for(let i = 0; i < arr.length - 1; i++) {
+		newArr = arr.slice(i)
+		if(isPlateu(newArr)) {
+			obj["pos"].push(i+1);
+			obj["peaks"].push(arr[i+1]);
 		}
 	}
 	return obj;
