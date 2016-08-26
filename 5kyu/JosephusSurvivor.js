@@ -1,5 +1,3 @@
-// https://www.codewars.com/kata/josephus-survivor/train/javascript
-
 const josephus = (arr, k) => {
 	if(arr.length <= 1) return arr;
 	let answ = [], idx = k-1;
@@ -14,11 +12,5 @@ const josephus = (arr, k) => {
 const josephusSurvivor = (n, k) => {
 	let arr = [];
 	for(let i = 1; i <= n; i++) arr.push(i);
-	return josephus(arr,k);
+	return josephus(arr,k)[0];
 }
-
-// josephusSurvivor(7,3)
-// josephusSurvivor(11,19)
-// josephusSurvivor(1,300)
-// josephusSurvivor(14,2)
-josephusSurvivor(100,1)
