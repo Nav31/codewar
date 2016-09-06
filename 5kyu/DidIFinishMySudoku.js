@@ -1,6 +1,6 @@
 const doneOrNot = board => {
 	const oneThru9 = arr => arr.reduce((a,b) => a+b) === 45;
-	let row, column, region;
+	let row, column, region, tempArr = [];
 	for(let i = 0; i < board.length; i++) { // this is for a row
 		if(!oneThru9(board[i])) return "Try again!";
 	}
@@ -11,7 +11,6 @@ const doneOrNot = board => {
 		}
 		if(!oneThru9(tempArr)) return 'Try again!';
 	}
-	let tempArr = [];
 	while(board.length > 0) {  // for a region
 		for(let i = 0; i < board[0].length; i++) {
 			for(let j = 0; j < 3; j++) {
