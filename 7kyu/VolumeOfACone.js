@@ -1,0 +1,1 @@
+const volume = (r,h) => Math.floor(Math.PI * Math.pow(r, 2) * (h / 3));
