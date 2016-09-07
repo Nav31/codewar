@@ -1,5 +1,3 @@
-
-
 var whoIsNext = (names, num) => {
 	let holder = [], nameholder = "", nameholder2 = "", counter = 0;
 	for(let i = 1; i < num; i++) {
@@ -10,6 +8,4 @@ var whoIsNext = (names, num) => {
 	}
 	return names[0];
 }
-// whoIsNext( [ 'Sheldon', 'Leonard', 'Penny', 'Rajesh', 'Howard' ], 1802)
-// whoIsNext( [ 'Sheldon', 'Leonard', 'Penny', 'Rajesh', 'Howard' ], 1)
 whoIsNext(["Sheldon", "Leonard", "Penny", "Rajesh", "Howard"], 7230702951)
