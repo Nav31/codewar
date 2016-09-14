@@ -5,14 +5,14 @@ Math.round = function(number) {
         if(modAmount >= .5) return number + (1-modAmount);
         else return number - modAmount;
     }
-};
-
+}
 Math.ceil = function(number) {
   let leftOver = number % 1;
   if(leftOver === 0) return number;
   else if(leftOver > 0) return number + (1-leftOver);
-};
-
+}
 Math.floor = function(number) {
-  return 0; // TODO: fix this
+  let leftOver = number % 1;
+  if(leftOver === 0) return number;
+  else if(leftOver > 0) return number - leftOver;
 };
