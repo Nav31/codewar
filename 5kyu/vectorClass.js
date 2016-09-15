@@ -37,5 +37,5 @@ Vector.prototype.toString = function () {
     return this.holder.join("");
 }
 Vector.prototype.equals = function (obj) {
-    return this.nums === obj.nums;
+    return this.nums == obj.nums;
 }
