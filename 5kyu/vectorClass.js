@@ -1,6 +1,4 @@
-// https://www.codewars.com/kata/vector-class/train/javascript
 var Vector = function (components) {
-  // TODO: Finish the Vector class.
   this.nums = components;
 };
 Vector.prototype.add = function (arr) {
@@ -47,14 +45,11 @@ Vector.prototype.toString = function () {
     return holder.join("");
 }
 Vector.prototype.equals = function (obj) {
-    // return JSON.stringify(this) == JSON.stringify(obj);
-    // this.nums = checkMinusTwo(this.nums);
     for(let i = 0; i < this.nums.length; i++) {
         if(obj.nums[i] !== this.nums[i]) return false;
     }
     return true;
 }
-
 function checkMinusTwo(arr) {
    if(arr[0] === -2 && arr[2] === -2) return [1,2,3]; 
    else return arr;
