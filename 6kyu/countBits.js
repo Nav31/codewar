@@ -1,0 +1,1 @@
+const countBits = n => n === 0 ? 0: n.toString(2).split("").filter(elem => elem === '1').length;
