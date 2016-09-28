@@ -5,9 +5,9 @@ function solution (roman) {
     charArr.forEach(elem => elem in map ? valArr.push(map[elem]) : null);
     for(let i = 0; i < valArr.length; i++) {
     	if(valArr[i] < valArr[i+1]) {
-    		newValArr.push(valArr[i+1] - valArr[i])
+    		newValArr.push(valArr[i+1] - valArr[i]);
     		valArr[i+1] = 0;
-    	} else newValArr.push(valArr[i])
+    	} else newValArr.push(valArr[i]);
     }
     return newValArr.reduce((a,b) => a+b);
 }
