@@ -1,0 +1,1 @@
+const sumMix = x => x.map(elem => parseInt(elem)).reduce((a,b) => a+b)
