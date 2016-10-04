@@ -1,4 +1,3 @@
-// https://www.codewars.com/kata/length-of-missing-array/train/javascript
 function getLengthOfMissingArray(arrayOfArrays) {
     let obj = {}, ans = 0,returnFalseRN = false;
     if(!Array.isArray(arrayOfArrays)) return 0;
