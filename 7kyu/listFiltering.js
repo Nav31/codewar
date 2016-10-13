@@ -1,0 +1,1 @@
+const filter_list = n => n.filter(elem => typeof(elem) === 'number');
