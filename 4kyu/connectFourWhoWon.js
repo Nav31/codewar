@@ -1,5 +1,3 @@
-// https://www.codewars.com/kata/connect-four-who-won
-
 function connectFour (board) {
     let inProgress = false, draw = false;
     for(let i = 0; i < board.length; i++) { // this will be for horizontal solution
