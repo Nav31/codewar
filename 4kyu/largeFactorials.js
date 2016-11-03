@@ -18,7 +18,7 @@ function sumBigNums (str1, str2) {
             carryOver = sumArr[0];
             ans = sumArr[1] + ans;
         } else {
-           	ans = sum + ans
+           	ans = sum + ans;
             carryOver = 0;
         }
     }
@@ -35,9 +35,9 @@ function factorial (n) {
 		let ansArr = ans.split(""), carryOver = 0;
         let idxCpy = i, iterCount = 0;
         idxCpy = idxCpy.toString().split("");
-        for(let j = idxCpy.length - 1; j >= 0; j--) { // this is for the bottom number multiplying
+        for(let j = idxCpy.length - 1; j >= 0; j--) { 
             let lineNums = ""
-            for(let k = ansArr.length - 1; k >= 0; k--) { // top number multiplying
+            for(let k = ansArr.length - 1; k >= 0; k--) {
                 let product = parseInt(ansArr[k]) * parseInt(idxCpy[j]) + parseInt(carryOver);
                 if(product > 9) {
                     carryOver = product.toString().split("")[0];
@@ -48,7 +48,7 @@ function factorial (n) {
                 }
             }
             for(let i = 0; i < iterCount; i++) {
-            	lineNums += "0"
+            	lineNums += "0";
             }
             if(carryOver > 0) lineNums = carryOver + lineNums
             lineArr.push(lineNums);
@@ -56,15 +56,22 @@ function factorial (n) {
             carryOver = 0;
             iterCount++;
         }
-        console.log(lineArr.length)
         if(lineArr.length === 1) ans = sumBigNums(ans, lineArr.shift());
         else if(lineArr.length === 2) ans = sumBigNums(lineArr.shift(), lineArr.shift());
-        else {
+        else if(lineArr.length === 3) {
         	ans = sumBigNums(lineArr.shift(), lineArr.shift());
-        	ans = sumBigNums(ans, lineArr.shift);
-        }
+        	ans = sumBigNums(ans, lineArr.shift());
+        } else return "only handle up to 1000!"
     }
     return ans.substring(0, ans.length-1)
 }
-
-factorial(100)
+factorial(250)
+/* This algorithm calculates large factorials by mutliplying as a person would and saving the result in a string
+    15
+    14
+----------
+    60
+   15
+----------
+   210
+*/
