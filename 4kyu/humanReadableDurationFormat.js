@@ -1,6 +1,6 @@
 function formatDuration (seconds) {
     if (seconds === 0) return "now";
-	  let ans = "", count = 0;
+	let ans = "", count = 0;
     let map = {"year": 0, "day": 0, "hour": 0, "minute": 0, "second": 0};
     let secInYear = 31536000, secInDay = 86400, secInHour = 3600, secInMin = 60; 
     while (seconds > 0) {
